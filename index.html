@@ -13,10 +13,30 @@
       rel="stylesheet"
     />
 
-    <title>YU-GI-OH</title>
+    <link rel="stylesheet" href="./src/styles/reset.css" />
+    <link rel="stylesheet" href="./src/styles/main.css" />
+
+    <title>YU-GI-OH Jo-ken-po Edition</title>
   </head>
   <body>
+    <body>
+      <div class="bg-video">
+        <video class="video" autoplay muted loop>
+          <source src="./src/assets/video/yugi.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="container">
+        <div class="container__left">
+          <div class="score_box"></div>
+          <div class="menu_avatar"></div>
+          <div class="card_details"></div>
+        </div>
+        <div class="container__right">
+          <div class="card-box"></div>
+        </div>
+      </div>
 
-    <script type="module" src="./src/scripts/engine.js" defer></script>
+      <script type="module" src="./src/scripts/engine.js" defer></script>
+    </body>
   </body>
 </html>
