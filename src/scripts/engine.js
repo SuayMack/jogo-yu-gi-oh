@@ -77,13 +77,24 @@ async function createCardImage(idCard, fieldSide) {
     cardImage.addEventListener("mouseover", () => {
       drawSelectCard(idCard);
     });
-
+    // add evento de mouseout para esconder a carta
     cardImage.addEventListener("click", () => {
       setCardsField(cardImage.getAttribute("data-id"));
     });
   }
 
   return cardImage;
+}
+
+//atualiza as informações e a imagem da carta selecionada
+//param = number (index- índice da carta selecionada)
+function drawSelectCard(index) {
+   // atualiza imagem do avatar no estado com a imagem da carta selecionada
+   state.cardSprites.avatar.src = cardData[index].img;
+   // atualiza nome da carta no estado
+   state.cardSprites.name.innerText = cardData[index].name; 
+   // atualiza tipo da carta no estado, addo atributo
+   state.cardSprites.type.innerText = "Attribute: " + cardData[index].type;
 }
 
 //colocar cartas na tela
