@@ -18,7 +18,9 @@ const state = {
   },
   playerSides: {
     player1: "player-cards",
+    player1BOX: document.querySelector("#computer-cards"),
     computer: "computer-cards",
+    computerBOX: document.querySelector("#player-cards"),
   },
   actions: {
     button: document.getElementById("next-duel"),
@@ -82,7 +84,6 @@ async function createCardImage(idCard, fieldSide) {
       setCardsField(cardImage.getAttribute("data-id"));
     });
   }
-
   return cardImage;
 }
 
@@ -106,15 +107,26 @@ async function setCardsField(cardId) {
   await drawButton(duelResults);
 }
 
+//remover as outras cartas depois de selecionar
+async function removeAllCardsImages() {
+  let { computerBOX, player1BOX } = state.playerSides;
+
+  let imgElements = computerBOX.querySelectorAll("img");
+  imgElements.forEach((img) => {img.remove();});
+  
+  imgElements = player1BOX.querySelectorAll("img");
+  imgElements.forEach((img) => {img.remove();});
+}
+
 //atualiza as informações e a imagem da carta selecionada
 //param = number (index- índice da carta selecionada)
-function drawSelectCard(index) {
-   // atualiza imagem do avatar no estado com a imagem da carta selecionada
-   state.cardSprites.avatar.src = cardData[index].img;
-   // atualiza nome da carta no estado
-   state.cardSprites.name.innerText = cardData[index].name; 
-   // atualiza tipo da carta no estado, addo atributo
-   state.cardSprites.type.innerText = "Attribute: " + cardData[index].type;
+async function drawSelectCard(index) {
+  // atualiza imagem do avatar no estado com a imagem da carta selecionada
+  state.cardSprites.avatar.src = cardData[index].img;
+  // atualiza nome da carta no estado
+  state.cardSprites.name.innerText = cardData[index].name; 
+  // atualiza tipo da carta no estado, addo atributo
+  state.cardSprites.type.innerText = "Attribute: " + cardData[index].type;
 }
 
 //colocar cartas na tela
