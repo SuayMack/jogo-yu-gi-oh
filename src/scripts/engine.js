@@ -107,6 +107,35 @@ async function setCardsField(cardId) {
   await drawButton(duelResults);
 }
 
+async function drawButton(text) {
+  state.actions.button.innerText = text;
+  state.actions.button.style.display = "block";
+}
+
+async function updateScore() {
+  state.score.scoreBox.innerText = `Win: ${state.score.playerScore} : Lose: ${state.score.computerScore}`;
+  state.score.scoreBox.style.display = "block";
+  
+}
+
+async function checkDuelResults(playerCardId, computerCardId) {
+  let duelResults = "Empate";
+  let playerCard = cardData[playerCardId];
+  let computerCard = cardData[computerCardId];
+
+  if (playerCard.WinOf.includes(computerCardId)) {
+    duelResults = "Venceu";
+    state.score.playerScore++;
+  } 
+  
+  if (computerCard.LoserOf.includes(playerCardId)) {
+    duelResults = "Perdeu";
+    state.score.computerScore++;
+  } 
+
+  return duelResults;
+}
+
 //remover as outras cartas depois de selecionar
 async function removeAllCardsImages() {
   let { computerBOX, player1BOX } = state.playerSides;
