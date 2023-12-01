@@ -86,6 +86,26 @@ async function createCardImage(idCard, fieldSide) {
   return cardImage;
 }
 
+//setar cartas no campo
+async function setCardsField(cardId) {
+  //remove todas as cartas
+  await removeAllCardsImages();
+  //sorteia carta aleatória para o computador
+  let computerCardId = await getRandomId();
+
+  state.fieldCards.player.style.display = "block";
+  state.fieldCards.computer.style.display = "block";
+
+  state.fieldCards.player.setAttribute("src", cardData[cardId].img);
+  state.fieldCards.computer.setAttribute("src", cardData[computerCardId].img);
+
+  //setar resultado
+  let duelResults = await checkDuelResults(cardId, computerCardId);
+
+  await updateScore();
+  await drawButton(duelResults);
+}
+
 //atualiza as informações e a imagem da carta selecionada
 //param = number (index- índice da carta selecionada)
 function drawSelectCard(index) {
