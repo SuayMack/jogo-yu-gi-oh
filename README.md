@@ -2,7 +2,7 @@
 
 Repositório referente ao jogo de cartas YU_GI_OH (jokenpo), requisito para o bootcamp Potência Tech iFood - Desenvolvimento de Jogos.
 
-Código criado do zero, com base nos vídeos das aulas e assets disponibilizados.
+Código recriado do zero, com base no projeto do professor Felipão.
 - [Repositório Base - Felipão](https://github.com/digitalinnovationone/js-yugioh-assets/tree/main)
 
 ## Conceitos abordados:
