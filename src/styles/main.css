@@ -49,6 +49,12 @@
   justify-content: center;
 }
 
+.container__left.framed-golden-2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 .score_box {
   background-color: #f3f3f3;
   padding: 30px;
@@ -124,7 +130,6 @@
 }
 
 .card-infield {
-  border: 1px solid #fff;
   border-radius: 8px;
   height: 14.2rem;
   width: 11rem;
