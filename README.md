@@ -5,6 +5,8 @@ Repositório referente ao jogo de cartas YU_GI_OH (jokenpo), requisito para o bo
 Código recriado do zero, com base no projeto do professor Felipão.
 - [Repositório Base - Felipão](https://github.com/digitalinnovationone/js-yugioh-assets/tree/main)
 
+### *Acrescentei um volume para o audio de fundo*
+
 ## Conceitos abordados:
 
 - Armazenamento e gerenciamento de estado manual
