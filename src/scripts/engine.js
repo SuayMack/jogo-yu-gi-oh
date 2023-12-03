@@ -1,4 +1,5 @@
 const pathImages = "./src/assets/icons/";
+const volumeSlider = document.querySelector('.volume-slider input');
 
 // Estado da aplicação
 const state = {
@@ -198,6 +199,10 @@ function init(){
 
   const bgm = document.getElementById("bgm")
   bgm.play();
+  volumeSlider.addEventListener("input", () => {
+    bgm.volume = volumeSlider.value;
+
+  });
 };
 
 init();
